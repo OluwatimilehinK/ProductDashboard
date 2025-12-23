@@ -18,7 +18,7 @@ const Products = () => {
   return (
     <main>
     <Filter search={search} setSearch={setSearch} />
-    <div className="flex flex-wrap aspect-square gap-4">
+    <div className="flex flex-wrap aspect-square gap-4 justify-center">
         {card.filter((item)=>{
             return search.toLocaleLowerCase() === "" ? item : item.category.toLocaleLowerCase().includes(search)
         }).map((item)=>(
@@ -28,7 +28,7 @@ const Products = () => {
           <p className="font-semibold text-stone-600">Category: {item.category}</p>
           <p className="font-semibold text-stone-600">Price: ${item.price}</p>
           <p className="font-semibold text-stone-600"> Ratings: {item.rating?.count} - {item.rating?.rate}</p>
-          {showBtn && <p className=" text-stone-600"> Ratings: {item.description} - {item.rating?.rate}</p>}
+          {showBtn === true && <p className="text-stone-600"> Description: {item.description}</p>}
           <button onClick={()=>{setShowBtn(!showBtn)}} className="text-blue-500">{showBtn ? 'Show less' :'Show Details'}</button>
 
           
