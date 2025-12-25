@@ -60,7 +60,7 @@ const Products = () => {
       .slice()
       .sort((a, b) => a.price - b.price) // LOW → HIGH
       .map((item) => (
-          <div key={item.id} className="shadow-lg w-100 rounded-lg p-2">
+          <div key={item.id} className="shadow-lg w-full rounded-lg p-2">
             <img
               src={item.image}
               alt="product image"
