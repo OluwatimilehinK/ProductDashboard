@@ -44,23 +44,15 @@ const Products = () => {
   return (
     <main>
     <Filter search={search} setSearch={setSearch} />
-    <div className="flex flex-wrap aspect-square gap-4 justify-center">
+    {/* <div className="flex flex-wrap aspect-square gap-4 justify-center"> */}
       
-       <div className="flex flex-wrap aspect-square gap-4 justify-center">
-  {isLoading
-    ? Array(8)
-        .fill(0)
-        .map((_, index) => <SkeletonCard key={index} />)
-    : card
-        .filter((item) =>
-        search.toLowerCase() === ""
-          ? item
-          : item.category.toLowerCase().includes(search)
+    <div className="flex flex-wrap aspect-square gap-4 justify-center">
+  {isLoading ? Array(8) .fill(0).map((_, index) => <SkeletonCard key={index} />) : card.filter((item) => search.toLowerCase() === "" ? item : item.category.toLowerCase().includes(search)
       )
       .slice()
       .sort((a, b) => a.price - b.price) // LOW → HIGH
       .map((item) => (
-          <div key={item.id} className="shadow-lg w-full rounded-lg p-2">
+          <div key={item.id} className="shadow-lg w-full md:w-100 rounded-lg p-2">
             <img
               src={item.image}
               alt="product image"
@@ -95,7 +87,7 @@ const Products = () => {
         ))}
 </div>
 
-    </div>
+    {/* </div> */}
     </main>
   )
 }
