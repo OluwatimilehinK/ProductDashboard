@@ -1,6 +1,8 @@
 import {useEffect, useState } from "react"
 import Filter from "./Filter"
 import Skeleton from "react-loading-skeleton"
+import "react-loading-skeleton/dist/skeleton.css";
+
 
 
 const Products = () => {
