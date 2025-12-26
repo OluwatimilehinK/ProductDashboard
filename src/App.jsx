@@ -1,5 +1,6 @@
-import Filter from "./components/Filter"
 import Products from "./components/Products"
+import "react-loading-skeleton/dist/skeleton.css";
+
 
 function App() {
   

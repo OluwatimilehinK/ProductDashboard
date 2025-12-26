@@ -1,7 +1,6 @@
 import {useEffect, useState } from "react"
 import Filter from "./Filter"
-import Skeleton from "react-loading-skeleton"
-import "react-loading-skeleton/dist/skeleton.css";
+import SkeletonCard from "./SkeletonCard"
 
 
 
@@ -28,26 +27,15 @@ const Products = () => {
         });
     }, []);
 
-    const SkeletonCard = () => (
-  <div className="shadow-lg w-100 rounded-lg p-2">
-    <Skeleton height={200} />
-    <Skeleton height={20} className="mt-2" />
-    <Skeleton height={16} />
-    <Skeleton height={16} />
-    <Skeleton height={16} />
-    <Skeleton width={100} height={16} />
-  </div>
-);
+
 
 
 
   return (
     <main>
-    <Filter search={search} setSearch={setSearch} />
-    {/* <div className="flex flex-wrap aspect-square gap-4 justify-center"> */}
-      
+    <Filter search={search} setSearch={setSearch} />   
     <div className="flex flex-wrap aspect-square gap-4 justify-center">
-  {isLoading ? Array(8) .fill(0).map((_, index) => <SkeletonCard key={index} />) : card.filter((item) => search.toLowerCase() === "" ? item : item.category.toLowerCase().includes(search)
+  {isLoading ? Array.from({length: 9}).map((_, index) => <SkeletonCard key={index} />) : card.filter((item) => search.toLowerCase() === "" ? item : item.category.toLowerCase().includes(search)
       )
       .slice()
       .sort((a, b) => a.price - b.price) // LOW → HIGH
