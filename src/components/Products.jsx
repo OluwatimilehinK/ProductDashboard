@@ -32,7 +32,7 @@ const Products = () => {
 
 
   return (
-    <main>
+    <main className="p-4">
     <Filter search={search} setSearch={setSearch} />   
     <div className="flex flex-wrap aspect-square gap-4 justify-center">
   {isLoading ? Array.from({length: 9}).map((_, index) => <SkeletonCard key={index} />) : card.filter((item) => search.toLowerCase() === "" ? item : item.category.toLowerCase().includes(search)
