@@ -1,6 +1,7 @@
 import {useEffect, useState } from "react"
 import Filter from "./Filter"
 import SkeletonCard from "./SkeletonCard"
+import { Link } from "react-router-dom"
 
 
 
@@ -40,7 +41,7 @@ const Products = () => {
       .slice()
       .sort((a, b) => a.price - b.price) // LOW → HIGH
       .map((item) => (
-          <div key={item.id} className="shadow-lg w-full md:w-100 rounded-lg p-2">
+          <Link to={`/product/${item.id}`} key={item.id} className="shadow-lg w-full md:w-100 rounded-lg p-2">
             <img
               src={item.image}
               alt="product image"
@@ -71,7 +72,7 @@ const Products = () => {
             >
               {openId === item.id ? "Show less" : "Show Details"}
             </button>
-          </div>
+          </Link>
         ))}
 </div>
 
